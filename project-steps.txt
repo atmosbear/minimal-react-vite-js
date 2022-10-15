@@ -1,3 +1,5 @@
+This file (project-steps.txt) is a documentation for how I made this repo. Pretty simple! Honestly it's a lot less bloat than create-react-app!
+============================================================
 - open new folder in VSC
 - `npm init -y`
 at the end, it'll look something like this; if you want individual steps, see below this section:
