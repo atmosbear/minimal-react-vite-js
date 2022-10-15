@@ -1,0 +1,79 @@
+- open new folder in VSC
+- `npm init -y`
+at the end, it'll look something like this; if you want individual steps, see below this section:
+==============================
+// PACKAGE.JSON:
+{
+  "name": "js-react-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "App.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest test"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^2.1.0",
+    "autoprefixer": "^10.4.12",
+    "postcss": "^8.4.18",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.1.8",
+    "vite": "^3.1.8",
+    "vitest": "^0.24.3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+==============================
+/////////////////// changes: /////////////////////////////////////////////////////////
+- package.json > add `"type": "module"`
+- package.json > add "dependencies" > list the ones you want, vite, tailwind, etc
+- package.json > "scripts" > "test": "vitest test" > "start": "vite" 
+/////////////////////////////////////////////////////////////////////////////////////////
+- add vite.config.js file:
+================================
+// VITE.CONFIG.JS:
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+export default defineConfig({
+  plugins: [react()]
+})
+================================
+- add super simple jsx file:
+================================
+// APP.JSX
+import React from "react";
+import Component from "./Component"
+import ReactDOM from "react-dom/client";
+export default function App() {
+	return (<Component />)
+}
+const rootEl = document.getElementById("root")
+ReactDOM.createRoot(rootEl).render(<App />)
+================================
+- add super simple component to show linking:
+================================
+// COMPONENT.JSX
+import React from "react";
+export default function Component() {
+	return (
+		<div>I am a component.</div>
+	)
+}
+================================
+- and finally, super simple html file with module declared:
+================================
+<head>
+	<title>App</title>
+	<script type="module" src="App.jsx"></script>
+</head>
+
+<body>
+	<div id="root"></div>
+</body>
+================================
